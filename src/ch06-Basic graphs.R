@@ -1,12 +1,9 @@
-## Chapter 06
-## Basic graphs
-
-# requires packages ggplot2, vcd, dplyr, treemapify, scales 
-install.packages("ggplot2")
-install.packages("vcd")
-install.packages("dplyr")
-install.packages("treemapify")
-install.packages("scales")
+#-----------------------------------------------------------------------#
+# R in Action (3rd ed): Chapter 6                                       #
+# Basic graphs                                                          #
+# requires the ggplot2, vcd, dplyr, treemapfiy and scales packages      #
+# install.packages(c("ggplot2", "vcd", "dplyr", "treemapfiy", "scales"))# 
+#-----------------------------------------------------------------------#
 
 # Listing 6.1 Simple bar charts
 library(ggplot2)
@@ -126,7 +123,7 @@ ggplot(plotdata,
                     grow=FALSE) +
   theme(legend.position = "none")
 
-# Listing 6.6 Histograms
+# Listing 6.8 Histograms
 library(ggplot2)
 library(scales)
 
@@ -140,7 +137,7 @@ ggplot(cars2008, aes(x=hwy)) +
 ggplot(cars2008, aes(x=hwy)) + 
   geom_histogram(bins=20, color="white", fill="steelblue") +
   labs(title="Colored histogram with 20 bins",
-       x="City Miles Per Gallon",
+       x="Highway Miles Per Gallon",
        y="Frequency")
 
 ggplot(cars2008, aes(x=hwy, y=..density..)) + 
@@ -148,7 +145,7 @@ ggplot(cars2008, aes(x=hwy, y=..density..)) +
   scale_y_continuous(labels=scales::percent) +
   labs(title="Histogram with percentages",
        y= "Percent",
-       x="City Miles Per Gallon")
+       x="Highway Miles Per Gallon")
 
 ggplot(cars2008, aes(x=hwy, y=..density..)) +
   geom_histogram(bins=20, color="white", fill="steelblue") + 
@@ -156,7 +153,7 @@ ggplot(cars2008, aes(x=hwy, y=..density..)) +
   geom_density(color="red", size=1) +
   labs(title="Histogram with density curve",
        y="Percent" ,
-       x="City Miles Per Gallon")
+       x="Highway Miles Per Gallon")
 
 # Listing 6.7 Kernel density plots
 data(mpg, package="ggplot2")
